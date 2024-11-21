@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { CardModel } from "@/app/models/CardModel";
 import {urls} from "@/app/constant/urls";
-import moviesList from "@/app/components/movieslist/MoviesList";
 
 type MovieCardProps = {
     movies: CardModel[];

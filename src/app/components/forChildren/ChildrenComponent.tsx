@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import {urls} from "@/app/constant/urls";
 import Link from "next/link";
