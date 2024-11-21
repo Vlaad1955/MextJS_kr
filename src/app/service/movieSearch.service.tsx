@@ -8,4 +8,4 @@ export async function searchMovies (query, page) : Promise<{ results: CardModel[
                 results: data.results || [],
                 total_pages: data.total_pages,
         };
-};
+}

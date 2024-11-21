@@ -1,14 +1,14 @@
 "use client";
 import React, { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation"; // Для динамічної навігації
+import { useRouter } from "next/navigation";
 
 const SearchComponent = () => {
-    const [dataToSend, setDataToSend] = useState<string>(""); // Стан для збереження значення
-    const router = useRouter(); // Використовуємо useRouter
+    const [dataToSend, setDataToSend] = useState<string>("");
+    const router = useRouter();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        router.push(`/search/${dataToSend}/1`); // Виконуємо перенаправлення після сабміту
+        router.push(`/search/${dataToSend}/1`);
     };
 
     return (
@@ -18,7 +18,7 @@ const SearchComponent = () => {
                 name="data"
                 placeholder="Який фільми ви шукаєте?"
                 value={dataToSend}
-                onChange={(e) => setDataToSend(e.target.value)} // Оновлюємо стан
+                onChange={(e) => setDataToSend(e.target.value)}
             />
             <button className="filter" type="submit">Знайти</button>
         </form>

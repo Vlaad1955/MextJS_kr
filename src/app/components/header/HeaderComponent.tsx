@@ -1,6 +1,5 @@
 
 import React from "react";
-import TrendingComponent from "@/app/components/trending/TrendingComponent";
 import Link from "next/link";
 import SearchComponent from "@/app/components/search/SerchComponent";
 

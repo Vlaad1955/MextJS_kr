@@ -8,7 +8,6 @@ const MoviePage = async ({params}: { params: Params }) => {
 
     const movie = await getToId(params.id);
 
-
     return (
         <section className="movie-details">
             <header
