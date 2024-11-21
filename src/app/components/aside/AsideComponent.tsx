@@ -12,7 +12,7 @@ const AsideComponent = async () =>{
             <UserInfoComponent/>
             <nav className="menu">
                 <h4>Жанри</h4>
-                <ul>
+                <ul key={`genre`}>
                     {Genres.genres.map((Genre) => (
                         <li> <Link href={`http://localhost:3000/movieslist/1/${Genre.id}`} style={{ textDecoration: 'none', color: 'inherit', fontSize: '0.8rem'}} > {Genre.name} </Link> </li>
                     ))}

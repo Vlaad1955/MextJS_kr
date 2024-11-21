@@ -64,35 +64,35 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 280px; /* Максимальна висота контейнера списку */
-    overflow-y: auto; /* Вертикальна прокрутка */
-    scrollbar-width: thin; /* Тонкий скролбар (Firefox) */
-    scrollbar-color: rgba(255, 255, 255, 0.4) transparent; /* Прозорий дизайн для Firefox */
+    max-height: 280px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 }
 
-/* Стилі для скролбару у WebKit браузерах (Chrome, Safari, Edge) */
+
 .menu ul::-webkit-scrollbar {
     width: 10px;
-    background: transparent; /* Повністю прозорий фон */
+    background: transparent;
 }
 
 .menu ul::-webkit-scrollbar-track {
-    background: transparent; /* Трек прозорий */
+    background: transparent;
 }
 
 .menu ul::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3); /* Напівпрозорий скролбар */
-    border-radius: 5px; /* Згладжені кути */
-    border: 2px solid transparent; /* Додає відступ для гарного вигляду */
-    background-clip: padding-box; /* Для коректного відображення меж */
-    transition: background 0.3s ease; /* Плавна зміна кольору */
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
 }
 
 .menu ul::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.6); /* Більш яскравий колір при наведенні */
 }
 
-/* Плавність руху скролбару */
+
 .menu ul {
     scroll-behavior: smooth;
 }
@@ -298,7 +298,7 @@ body {
     color: #666;
 }
 
-/* Bestselling List Styles */
+
 .bestselling-list {
     list-style: none;
     padding-left: 0;
@@ -322,7 +322,6 @@ body {
     color: #999;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -355,9 +354,9 @@ body {
     justify-content: space-between;
     display: flex;
 }
-
-
-
+.theСentralPart{
+    width: 78%;
+}
 
 
 
@@ -367,12 +366,11 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
 .movie-header {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 40vh; /* Фіксована висота бекграунду */
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -387,15 +385,15 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
-    z-index: 1; /* Градієнт над бекграундом */
+    z-index: 1;
 }
 
 .header-overlay {
     position: relative;
-    z-index: 2; /* Контент поверх градієнта */
+    z-index: 2;
     text-align: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Напівпрозоре тло для контенту */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
 }
 
@@ -409,7 +407,7 @@ body {
     color: #ccc;
     margin-top: 10px;
 }
-input[type="text"] {
+    & input[type="text"] {
     padding: 8px;
     border-radius: 20px;
     border: 1px solid #ccc;
@@ -417,7 +415,7 @@ input[type="text"] {
 }
 
 
-/* Content */
+
 .movie-content {
     padding: 20px;
 }
@@ -442,7 +440,6 @@ input[type="text"] {
     color: #aaa;
 }
 
-/* Production Companies */
 .production-section h2 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -473,12 +470,12 @@ input[type="text"] {
 
 
 .star {
-    font-size: 24px; /* Змінюємо розмір зірок */
-    color: #ccc; /* Задаємо колір залишених зірок */
+    font-size: 24px;
+    color: #ccc;
 }
 
 .filled {
-    color: #fdd835; /* Задаємо жовтий колір для заповнених зірок */
+    color: #fdd835;
 }
 
 
@@ -596,3 +593,62 @@ input[type="text"] {
     border-color: #3f51b5;
 }
 
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cardCarousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.cardCarousel.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.titleCarousel {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: #fff;
+}
