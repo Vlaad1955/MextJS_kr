@@ -8,7 +8,7 @@ const SearchComponent = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        router.push(`/search/${dataToSend}`); // Виконуємо перенаправлення після сабміту
+        router.push(`/search/${dataToSend}/1`); // Виконуємо перенаправлення після сабміту
     };
 
     return (
@@ -16,11 +16,11 @@ const SearchComponent = () => {
             <input
                 type="text"
                 name="data"
-                placeholder="Введіть дані"
+                placeholder="Який фільми ви шукаєте?"
                 value={dataToSend}
                 onChange={(e) => setDataToSend(e.target.value)} // Оновлюємо стан
             />
-            <button type="submit">Надіслати</button>
+            <button className="filter" type="submit">Знайти</button>
         </form>
     );
 };

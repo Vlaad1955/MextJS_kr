@@ -26,7 +26,7 @@ const HeaderComponent = () => {
                     <SearchComponent/>
                     </span>
             </div>
-            <TrendingComponent />
+
         </header>
     );
 };

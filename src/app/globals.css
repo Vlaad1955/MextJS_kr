@@ -14,6 +14,8 @@ body {
     height: 100vh;
 }
 
+
+
 .sidebar {
     width: 250px;
     background: linear-gradient(135deg, #4c4f64, #29314d);
@@ -23,39 +25,98 @@ body {
     justify-content: space-between;
     padding: 20px;
 }
-
 .profile {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .profile img {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
-    border: 2px solid #fff;
+    border: 3px solid #444;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.profile h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.profile p {
+    font-size: 12px;
+    color: #aaa;
 }
 
 .menu h4 {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #aaa;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
 }
 
 .menu ul {
     list-style: none;
-    margin-bottom: 20px;
+    padding: 0;
+    margin: 0;
+    max-height: 280px; /* Максимальна висота контейнера списку */
+    overflow-y: auto; /* Вертикальна прокрутка */
+    scrollbar-width: thin; /* Тонкий скролбар (Firefox) */
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent; /* Прозорий дизайн для Firefox */
+}
+
+/* Стилі для скролбару у WebKit браузерах (Chrome, Safari, Edge) */
+.menu ul::-webkit-scrollbar {
+    width: 10px;
+    background: transparent; /* Повністю прозорий фон */
+}
+
+.menu ul::-webkit-scrollbar-track {
+    background: transparent; /* Трек прозорий */
+}
+
+.menu ul::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); /* Напівпрозорий скролбар */
+    border-radius: 5px; /* Згладжені кути */
+    border: 2px solid transparent; /* Додає відступ для гарного вигляду */
+    background-clip: padding-box; /* Для коректного відображення меж */
+    transition: background 0.3s ease; /* Плавна зміна кольору */
+}
+
+.menu ul::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6); /* Більш яскравий колір при наведенні */
+}
+
+/* Плавність руху скролбару */
+.menu ul {
+    scroll-behavior: smooth;
 }
 
 .menu ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 4px;
     position: relative;
 }
 
 .menu ul li:hover {
     color: #fff;
+    background-color: #444;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
 }
 
 .badge {
@@ -347,6 +408,12 @@ body {
     font-size: 1.2rem;
     color: #ccc;
     margin-top: 10px;
+}
+input[type="text"] {
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
 }
 
 

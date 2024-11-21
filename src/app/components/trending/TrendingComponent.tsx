@@ -4,12 +4,12 @@ import {urls} from "@/app/constant/urls";
 import Link from "next/link";
 
 const TrendingComponent = async () => {
-    const Noteworthy = await NoteworthyService();
+    const { results: Noteworthy} = await NoteworthyService(1);
 
     return (
         <section className="trending">
             <h2>
-                Популярні та варті уваги <a href="#">Дивитись усе</a>
+                Популярні та варті уваги
             </h2>
             <div className="trending-grid">
                 {Noteworthy.slice(0,6).map((movie) => (

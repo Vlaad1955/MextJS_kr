@@ -1,9 +1,13 @@
 import {urls} from "@/app/constant/urls";
-import {TrandingModel} from "@/app/models/TrandingModel";
+import {CardModel} from "@/app/models/CardModel";
 
 
-export  async function NoteworthyService (): Promise<TrandingModel[]> {
-    const response = await fetch(`${urls.TopMovie}`);
+export  async function NoteworthyService (page): Promise<{ results: CardModel[]; total_pages: number
+}> {
+    const response = await fetch(`${urls.TopMovie}&page=${page}`);
     const data = await response.json();
-    return data.results;
+    return {
+        results: data.results,
+        total_pages: data.total_pages,
+    };
 }

@@ -3,11 +3,12 @@ import Link from 'next/link';
 type PaginationProps = {
     currentPage: number;
     totalPages: number;
-    genreId?: number; // ID жанру є необов’язковим
+    genreId?: number;
+    searchName?: string;
 };
 
-const Pagination = ({ currentPage, totalPages, genreId }: PaginationProps) => {
-    const visiblePages = 3; // Кількість відображуваних сторінок
+const Pagination = ({ currentPage, totalPages, genreId, searchName}: PaginationProps) => {
+    const visiblePages = 3;
     const startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
     const endPage = Math.min(totalPages, startPage + visiblePages - 1);
 
@@ -17,6 +18,9 @@ const Pagination = ({ currentPage, totalPages, genreId }: PaginationProps) => {
     );
 
     const getHref = (page: number) => {
+        if (searchName) {
+            return `/search/${searchName}/${page}`;
+        }
         return genreId
             ? `/movieslist/${page}/${genreId}`
             : `/movieslist/${page}`;
@@ -24,7 +28,7 @@ const Pagination = ({ currentPage, totalPages, genreId }: PaginationProps) => {
 
     return (
         <div className="pagination-container">
-            {/* Кнопка "Попередня сторінка" */}
+
             <button className="filter" disabled={currentPage === 1}>
                 <Link
                     href={getHref(currentPage - 1)}
@@ -38,7 +42,6 @@ const Pagination = ({ currentPage, totalPages, genreId }: PaginationProps) => {
                 </Link>
             </button>
 
-            {/* Сторінки */}
             {pages.map((page) => (
                 <button className="filter" key={page}>
                     <Link
@@ -56,7 +59,6 @@ const Pagination = ({ currentPage, totalPages, genreId }: PaginationProps) => {
                 </button>
             ))}
 
-            {/* Кнопка "Наступна сторінка" */}
             <button className="filter" disabled={currentPage === totalPages}>
                 <Link
                     href={getHref(currentPage + 1)}
