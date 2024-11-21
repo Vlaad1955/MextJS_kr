@@ -13,7 +13,7 @@ const ChildrenComponent = async () => {
             </h2>
             <div className="trending-grid">
                 {Noteworthy.slice(0,4).map((movie) => (
-                    <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
+                    <Link key={movie.id} href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
                         <div className="card large" key={movie.id}>
                             <img
                                 src={`${urls.imageBaseURL}${movie.poster_path}`}
