@@ -10,7 +10,7 @@ const Bestselling = async () => {
             <h2>Лідер цього тижня</h2>
             <ul className="bestselling-list">
                 {populars.map((popular, index) => (
-                    <li key={popular.id}> <Link href={`/all/${popular.id}`} style={{ textDecoration: 'none', color: 'inherit'}} > {index + 1}. {popular.name || popular.title}</Link>
+                    <li key={popular.id}> <Link href={`/movie/${popular.id}`} style={{ textDecoration: 'none', color: 'inherit'}} > {index + 1}. {popular.name || popular.title}</Link>
                         <span>{Math.round(popular.popularity)}</span></li>
                 ))}
             </ul>

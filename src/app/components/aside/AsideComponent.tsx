@@ -1,6 +1,10 @@
 import React from "react";
+import {GetGenreID} from "@/app/service/genreId.service";
+import Link from "next/link";
 
-const AsideComponent = () =>{
+const AsideComponent = async () =>{
+
+    const Genres = await GetGenreID();
 
     return(
         <aside className="sidebar">
@@ -10,21 +14,11 @@ const AsideComponent = () =>{
                     <p>Ukraine, Lviv</p>
             </div>
             <nav className="menu">
-                <h4>Media</h4>
+                <h4>Жанри</h4>
                 <ul>
-                    <li>Movies</li>
-                    <li>TV Shows</li>
-                    <li>Music</li>
-                    <li>Audiobooks</li>
-                    <li>Games</li>
-                    <li>Apps</li>
-                    <li>Updates <span className="badge">5</span></li>
-                </ul>
-                <h4>Account</h4>
-                <ul>
-                    <li>Library</li>
-                    <li>Wishlist</li>
-                    <li>Settings</li>
+                    {Genres.genres.map((Genre) => (
+                        <li> <Link href={`http://localhost:3000/movieslist/1/${Genre.id}`} style={{ textDecoration: 'none', color: 'inherit', fontSize: '0.8rem'}} > {Genre.name} </Link> </li>
+                    ))}
                 </ul>
             </nav>
             <button className="sign-out">Sign Out</button>

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import HeaderComponent from "@/app/components/header/HeaderComponent";
 import AsideComponent from "@/app/components/aside/AsideComponent";
+import TrendingComponent from "@/app/components/trending/TrendingComponent";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

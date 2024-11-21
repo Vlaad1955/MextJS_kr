@@ -13,7 +13,7 @@ const TrendingComponent = async () => {
             </h2>
             <div className="trending-grid">
                 {Noteworthy.slice(0,6).map((movie) => (
-                    <Link href={`/all/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
+                    <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
                     <div className="card large" key={movie.id}>
                         <img
                             src={`${urls.imageBaseURL}${movie.poster_path}`}
