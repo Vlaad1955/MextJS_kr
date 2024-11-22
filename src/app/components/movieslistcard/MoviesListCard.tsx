@@ -8,24 +8,20 @@ const MoviesListCard = ({movie}) =>{
     return(
         <div className="movie-card">
             <div className="card-image">
-                <img src={`${urls.imageBaseURL}${movie.poster_path}`} alt={movie.title}/>
+                <img src={`${urls.imageBaseURL}${movie.poster_path}`} alt={movie.title} />
             </div>
             <div className="card-content">
                 <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h2 className="card-title">{movie.title}</h2>
+                    <h2 className="card-title">{movie.title}</h2>
                 <p className="card-category">
-                    <span className="icon">📽️ {movie.release_date}</span></p>
-                    <div className="card-footer">
-                        <Rating rating={movie.vote_average} />
-                        <div className="social">
-                            <span className="icon">🌐</span>
-                        </div>
-                    </div>
-                    <div>
-                <p className="card-description">
-                    {movie.overview}
+                    📽️ {movie.release_date}
                 </p>
+                <div className="card-footer">
+                    <div className="rating"><Rating rating={movie.vote_average} /></div>
+                    <div className="social">
+                        <span className="icon">🌐</span>
                     </div>
+                </div>
                 </Link>
             </div>
         </div>

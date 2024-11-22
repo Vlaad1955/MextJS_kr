@@ -12,15 +12,16 @@ const SearchComponent = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search-bar-container">
             <input
+                className="search-bar"
                 type="text"
                 name="data"
                 placeholder="Який фільми ви шукаєте?"
                 value={dataToSend}
                 onChange={(e) => setDataToSend(e.target.value)}
             />
-            <button className="filter" type="submit">Знайти</button>
+            <button className="search-button" type="submit">Знайти</button>
         </form>
     );
 };

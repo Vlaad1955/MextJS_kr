@@ -147,132 +147,231 @@ body {
 
 .content {
     flex: 1;
-    padding: 20px;
+    padding: 3px;
     overflow-y: auto;
+}
+
+.header-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
-.filters span, .now-playing {
-    margin-right: 20px;
-    color: #666;
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .filter {
-    color: #666;
-    padding: 5px 10px;
+    color: #444;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
     border-radius: 20px;
-    background-color: #e0e0e0;
+    background-color: #e9ecef;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
 }
 
 .filter:hover {
-    background-color: #d4d4d4;
+    background-color: #ced4da;
+    transform: translateY(-2px);
 }
-.right-sidebar {
-    width: 250px;
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 20px;
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
 .search-bar {
-    padding: 8px;
+    padding: 10px 16px;
     border-radius: 20px;
     border: 1px solid #ccc;
-    width: 200px;
+    width: 240px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.trending, .whats-new, .bestselling {
+.search-bar:focus {
+    border-color: #495057;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.search-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    background-color: #495057;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #343a40;
+    transform: translateY(-2px);
+}
+
+
+
+
+.trending {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trending h2 {
+    font-size: 24px;
+    color: #222;
     margin-bottom: 20px;
-}
-.whats-new{
-    border-bottom: 2px solid #ddd;
-}
-
-.trending h2, .whats-new h2, .bestselling h2 {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-left: 4px solid #495057;
+    padding-left: 10px;
 }
 
 .trending-grid {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .card {
     position: relative;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    background-color: #fff;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card.large {
-    width: 150px;
-    height: 100px;
+    width: 160px;
+    height: 240px;
 }
 
 .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-bottom: 2px solid #ddd;
 }
 
 .overlay {
     position: absolute;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
     color: white;
     width: 100%;
-    height: 50%;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
+    transition: background 0.3s ease;
+}
+
+.card:hover .overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.overlay .badge {
+    display: inline-block;
+    background: #ffc107;
+    color: #222;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.overlay p {
     font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.right-sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.whats-new, .bestselling {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.whats-new h2, .bestselling h2 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
 }
 
 .new-card {
-    border-radius: 10px;
+    display: flex;
+    gap: 15px;
+    border-radius: 8px;
     overflow: hidden;
-    position: relative;
-    transition: box-shadow 0.3s;
-}
-
-.new-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
 }
 
 .new-card img {
     width: 100px;
-    height: 100%;
+    height: 100px;
     object-fit: cover;
+    border-radius: 8px;
 }
+
 .new-card .details {
-    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.new-card .details h3 {
+.new-card h3 {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin: 0 0 8px;
     color: #333;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.new-card .details span {
+.new-card span {
     font-size: 12px;
     color: #888;
 }
@@ -280,46 +379,47 @@ body {
 .new-card .description {
     font-size: 12px;
     color: #555;
-    margin-top: 5px;
+    line-height: 1.4;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.new-card .play-button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
+.new-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
-.new-card .play-button:hover {
-    color: #666;
-}
-
 
 .bestselling-list {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .bestselling-list li {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    align-items: center;
+    padding: 10px 0;
     font-size: 14px;
+    border-bottom: 1px solid #eee;
     color: #333;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.bestselling-list li:last-child {
+    border-bottom: none;
 }
 
 .bestselling-list li:hover {
-    color: #666;
+    color: #495057;
+    transform: translateX(5px);
 }
 
 .bestselling-list li span {
+    font-size: 14px;
     font-weight: bold;
-    color: #999;
+    color: #888;
 }
 
 @media (max-width: 768px) {
@@ -350,12 +450,27 @@ body {
         flex-direction: column;
     }
 }
+
+
 .basePage {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background: #f7f7f7; /* Легкий фон для всього */
+    gap: 20px;
+    box-sizing: border-box;
 }
-.theСentralPart{
-    width: 78%;
+
+.theСentralPart {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Тінь для глибини */
 }
 
 
@@ -364,17 +479,20 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    font-family: 'Arial', sans-serif;
 }
 
 .movie-header {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 40vh;
+    height: 45vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .movie-header::before {
@@ -384,8 +502,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
     z-index: 1;
+    border-radius: 10px;
 }
 
 .header-overlay {
@@ -393,62 +512,73 @@ body {
     z-index: 2;
     text-align: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 .header-overlay h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: bold;
     margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .header-overlay .original-title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #ccc;
     margin-top: 10px;
+    letter-spacing: 0.5px;
 }
-    & input[type="text"] {
-    padding: 8px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    width: 200px;
-}
-
-
 
 .movie-content {
-    padding: 20px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: -40px;
+    z-index: 1;
 }
 
 .info-section {
-    margin-bottom: 30px;
+    margin-top: 12px;
+    margin-bottom: 40px;
 }
 
 .info-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .info-section p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
 }
 
 .release-date {
     font-weight: bold;
-    color: #aaa;
+    color: #777;
+    font-size: 1.1rem;
 }
 
 .production-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .production-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
     padding: 0;
     list-style: none;
 }
@@ -456,16 +586,63 @@ body {
 .company-item {
     display: flex;
     align-items: center;
-    border-radius: 5px;
-    padding: 10px;
-    min-width: 100px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.company-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .company-logo {
-    max-width: 80px;
-    max-height: 40px;
+    max-width: 90px;
+    max-height: 50px;
     object-fit: contain;
+    margin-right: 15px;
 }
+
+input[type="text"] {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 250px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #333;
+}
+
+@media (max-width: 768px) {
+    .movie-header {
+        height: 40vh;
+    }
+
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .info-section h2,
+    .production-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .company-item {
+        padding: 8px 15px;
+    }
+
+    .company-logo {
+        max-width: 70px;
+        max-height: 40px;
+    }
+}
+
 
 
 
@@ -489,62 +666,86 @@ body {
 }
 
 .movie-card {
-    width: 200px;
-    height: 500px;
+    width: 240px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card-image img {
     width: 100%;
-    height: auto;
+    height: 360px;
+    object-fit: cover;
     display: block;
 }
 
 .card-content {
-    padding: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .card-title {
-    font-size: 6px;
-    font-weight: bold;
-    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .card-category {
-    font-size: 6px;
-    color: #888;
+    font-size: 14px;
+    color: #777;
+    margin: 0;
 }
 
 .card-description {
-    font-size: 6px;
+    font-size: 14px;
     color: #555;
-    line-height: 1.4;
-    margin-bottom: 16px;
-    height: 70px;
+    line-height: 1.6;
+    margin: 0;
+    max-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 12px;
+    margin-top: 12px;
 }
 
 .rating {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     color: #f4c542;
 }
 
 .social .icon {
     font-size: 18px;
-    color: #888;
+    color: #555;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
+
+.social .icon:hover {
+    color: #333;
+}
+
+
 
 .pagination-container {
     display: flex;
@@ -597,8 +798,12 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 400px;
     overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: #333;
+    transition: all 0.3s ease;
 }
 
 .cardCarousel {
@@ -606,16 +811,19 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 75%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, transform 0.5s ease;
+    transform: scale(0.98);
 }
 
 .cardCarousel.active {
     opacity: 1;
     z-index: 1;
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .titleCarousel {
@@ -623,32 +831,40 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     font-size: 1.5rem;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cardCarousel.active .titleCarousel {
+    transform: translateX(-50%) scale(1.05); /* Анімація для назви */
 }
 
 .indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.5);
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .indicator.active {
     background: #fff;
+    transform: scale(1.2);
 }
+
+

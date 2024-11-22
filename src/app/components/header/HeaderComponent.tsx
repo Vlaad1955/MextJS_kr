@@ -21,7 +21,7 @@ const HeaderComponent = () => {
                         </Link>
                     </span>
                 </div>
-                <span className="filter">
+                <span className="search-bar-container">
                     <SearchComponent/>
                     </span>
             </div>
