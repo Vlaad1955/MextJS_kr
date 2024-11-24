@@ -10,16 +10,16 @@ const HeaderComponent = () => {
         <header className="header-container">
             <div className="top-bar">
                 <div className="filters">
+                    <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
                     <span className="filter">
-                        <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
                             Головна сторінка
-                        </Link>
                     </span>
+                    </Link>
+                    <Link href="/movieslist/1" style={{ textDecoration: "none", color: "inherit" }}>
                     <span className="filter">
-                        <Link href="/movieslist/1" style={{ textDecoration: "none", color: "inherit" }}>
                             Каталог фільмів
-                        </Link>
                     </span>
+                    </Link>
                 </div>
                 <span className="search-bar-container">
                     <SearchComponent/>

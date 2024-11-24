@@ -29,48 +29,51 @@ const Pagination = ({ currentPage, totalPages, genreId, searchName}: PaginationP
     return (
         <div className="pagination-container">
 
+            <Link
+                href={getHref(currentPage - 1)}
+                style={{
+                    pointerEvents: currentPage === 1 ? 'none' : 'auto',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                }}
+            >
             <button className="filter" disabled={currentPage === 1}>
-                <Link
-                    href={getHref(currentPage - 1)}
-                    style={{
-                        pointerEvents: currentPage === 1 ? 'none' : 'auto',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                    }}
-                >
                     &laquo; Попередня сторінка
-                </Link>
             </button>
+            </Link>
 
             {pages.map((page) => (
-                <button className="filter" key={page}>
-                    <Link
-                        href={getHref(page)}
-                        style={{
-                            margin: '0 5px',
-                            fontWeight: currentPage === page ? 'bold' : 'normal',
-                            cursor: 'pointer',
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
-                    >
-                        {page}
-                    </Link>
-                </button>
-            ))}
-
-            <button className="filter" disabled={currentPage === totalPages}>
                 <Link
-                    href={getHref(currentPage + 1)}
+                    key={page}
+                    href={getHref(page)}
                     style={{
-                        pointerEvents: currentPage === totalPages ? 'none' : 'auto',
+                        margin: '0 5px',
+                        fontWeight: currentPage === page ? 'bold' : 'normal',
+                        cursor: 'pointer',
                         textDecoration: 'none',
                         color: 'inherit',
                     }}
                 >
-                    Наступна сторінка &raquo;
+                <button className="filter" key={page}>
+
+                        {page}
+                </button>
                 </Link>
+            ))}
+
+            <Link
+                href={getHref(currentPage + 1)}
+                style={{
+                    pointerEvents: currentPage === totalPages ? 'none' : 'auto',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                }}
+            >
+            <button className="filter" disabled={currentPage === totalPages}>
+
+                    Наступна сторінка &raquo;
             </button>
+            </Link>
         </div>
     );
 };
