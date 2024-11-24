@@ -7,11 +7,11 @@ const MoviesListCard = ({movie}) =>{
 
     return(
         <div className="movie-card">
+            <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="card-image">
                 <img src={`${urls.imageBaseURL}${movie.poster_path}`} alt={movie.title} />
             </div>
             <div className="card-content">
-                <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <h2 className="card-title">{movie.title}</h2>
                 <p className="card-category">
                     📽️ {movie.release_date}
@@ -22,8 +22,8 @@ const MoviesListCard = ({movie}) =>{
                         <span className="icon">🌐</span>
                     </div>
                 </div>
-                </Link>
             </div>
+            </Link>
         </div>
     )
 };
