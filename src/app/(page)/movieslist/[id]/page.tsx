@@ -6,7 +6,9 @@ import Pagination from "@/app/components/pagination/Pagination";
 type Params = {  id: string };
 
 const MoviesPage = async ({ params }: { params: Params }) => {
-    const page = parseInt(params.id) || 1;
+    const locale = await params;
+    const page = parseInt(locale.id) || 1;
+
 
     const { results: movies, total_pages } = await getMovies(page);
 

@@ -5,8 +5,8 @@ import {urls} from "@/app/constant/urls";
 type Params = { id: string }
 
 const MoviePage = async ({params}: { params: Params }) => {
-
-    const movie = await getToId(params.id);
+    const locale = await params;
+    const movie = await getToId(locale.id);
 
     return (
         <section className="movie-details">
