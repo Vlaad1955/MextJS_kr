@@ -1,4 +1,5 @@
 export interface TrandingModel {
+    "title": string;
     "backdrop_path": string,
     "id": number,
     "name": string,
